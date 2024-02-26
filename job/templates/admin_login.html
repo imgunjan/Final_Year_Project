@@ -1,0 +1,48 @@
+{% load static %} {% block body %} {% include "navigation.html" %}
+<style>
+    .btn-primary {
+        background: linear-gradient(to right, #134c67, #f7921e);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background: linear-gradient(to right, #f7921e, #134c67);
+    }
+</style>
+<form class="Container mt-5" method="post">
+    {% csrf_token %}
+    <label><b>User Name </b></label>
+    <input
+        type="text"
+        class="form-control"
+        name="uname"
+        placeholder="Enter the User Name:"
+    />
+    <label><b>Password</b></label>
+    <input
+        type="password"
+        class="form-control"
+        name="pwd"
+        placeholder="Enter the Password :"
+    />
+    <input
+        type="submit"
+        class="btn btn-primary"
+        style="margin-top: 2%"
+        value="Login"
+    />
+</form>
+{% if error == "no" %}
+<script>
+    alert("Login Successful");
+    window.location.href = "{% url 'admin_home' %}";
+</script>
+{% endif %} {% if error == "yes" %}
+<script>
+    alert("Invalid Login Credentials. Please try again.");
+</script>
+{% endif %} {% endblock%}

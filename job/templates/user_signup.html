@@ -1,0 +1,158 @@
+{% load static %} {% block body %} {% include "navigation.html" %}
+
+<script>
+    function checkPassword() {
+        if (document.signup.pwd.value !== document.signup.cpwd.value) {
+            alert("Password and Confirm Password fields do not match");
+            document.signup.cpwd.focus();
+            return false;
+        }
+        return true;
+    }
+</script>
+
+<style>
+    .btn-primary {
+        background: linear-gradient(to right, #134c67, #f7921e);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background: linear-gradient(to right, #f7921e, #134c67);
+    }
+</style>
+
+<form
+    class="Container mt-5"
+    name="signup"
+    method="post"
+    enctype="multipart/form-data"
+    onsubmit="return checkPassword()"
+>
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>First Name</label>
+            <input
+                type="text"
+                class="form-control"
+                name="fname"
+                placeholder="Enter the First name"
+                required
+            />
+        </div>
+        <div class="form-group col-md-6">
+            <label>Last Name</label>
+            <input
+                type="text"
+                class="form-control"
+                name="lname"
+                placeholder="Enter the Last name"
+                required
+            />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label>Contact Number</label>
+            <input
+                type="text"
+                class="form-control"
+                name="contact"
+                placeholder="Enter Contact Number"
+                required
+            />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label>Email Address</label>
+            <input
+                type="text"
+                class="form-control"
+                name="email"
+                placeholder="Enter the email Address"
+                required
+            />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Password</label>
+            <input
+                type="password"
+                class="form-control"
+                name="pwd"
+                placeholder="Enter the Password"
+                required
+            />
+        </div>
+        <div class="form-group col-md-6">
+            <label>Confirm Password</label>
+            <input
+                type="password"
+                class="form-control"
+                name="cpwd"
+                placeholder="Confirm your password"
+                required
+            />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Gender</label>
+            <div
+                style="
+                    border: 1px solid lightgrey;
+                    padding: 5px;
+                    border-radius: 6px;
+                "
+            >
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                        type="radio"
+                        id="customRadioInline1"
+                        name="gender"
+                        class="custom-control-input"
+                        value="male"
+                    />
+                    <label class="custom-control-label" for="customRadioInline1"
+                        >Male</label
+                    >
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input
+                        type="radio"
+                        id="customRadioInline2"
+                        name="gender"
+                        class="custom-control-input"
+                        value="female"
+                    />
+                    <label class="custom-control-label" for="customRadioInline2"
+                        >Female</label
+                    >
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Image</label>
+            <input type="file" class="form-control" name="image" required />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% include "footer.html" %} {% if error == "no" %}
+<script>
+    alert("Sign Up Successful");
+    window.location.href = "{% url 'user_login' %}";
+</script>
+{% endif %} {% if error == "yes" %}
+<script>
+    alert("Something went wrong. Please try again.");
+</script>
+{% endif %} {% endblock %}

@@ -1,0 +1,116 @@
+{% load static %} {% block body %} {% include "navigation.html" %}
+<style>
+    .container {
+        max-width: 90%;
+    }
+</style>
+<div class="container-fluid">
+    <img
+        src="{% static 'images/background.jpg' %}"
+        alt=""
+        style="height: 600px; width: 101%"
+    />
+</div>
+<div
+    class="container"
+    style="
+        background: linear-gradient(to right, #134c67, #f7921e);
+        height: 300px;
+        margin-top: 2%;
+    "
+>
+    <h1 class="text-center text-white">
+        --------|Our Placed Employee|--------
+    </h1>
+    <div class="row mt-4 ml-5">
+        <div class="col-md-3">
+            <img
+                src="{% static 'images/albi.png' %}"
+                style="
+                    width: 120px;
+                    margin-top: 5%;
+                    height: 100px;
+                    border-radius: 50%;
+                "
+            />
+        </div>
+        <div class="col-md-3">
+            <img
+                src="{% static 'images/creatswitch.png' %}"
+                style="
+                    width: 120;
+                    margin-top: 5%;
+                    height: 100px;
+                    border-radius: 50%;
+                "
+            />
+        </div>
+        <div class="col-md-3">
+            <img
+                src="{% static 'images/facebook.png' %}"
+                style="
+                    width: 120;
+                    margin-top: 5%;
+                    height: 100px;
+                    border-radius: 50%;
+                "
+            />
+        </div>
+        <div class="col-md-3">
+            <img
+                src="{% static 'images/gergit.png' %}"
+                style="
+                    width: 120;
+                    margin-top: 5%;
+                    height: 100px;
+                    border-radius: 50%;
+                "
+            />
+        </div>
+        <div class="col-md-3">
+            <img
+                src="{% static 'images/linkdin.png' %}"
+                style="
+                    width: 120;
+                    margin-top: 5%;
+                    height: 100px;
+                    border-radius: 50%;
+                "
+            />
+        </div>
+        <div class="col-md-3">
+            <img
+                src="{% static 'images/netdev.png' %}"
+                style="
+                    width: 120;
+                    margin-top: 5%;
+                    height: 100px;
+                    border-radius: 50%;
+                "
+            />
+        </div>
+        <div class="col-md-3">
+            <img
+                src="{% static 'images/swipt.jpeg' %}"
+                style="
+                    width: 120;
+                    margin-top: 5%;
+                    height: 100px;
+                    border-radius: 50%;
+                "
+            />
+        </div>
+        <div class="col-md-3">
+            <img
+                src="{% static 'images/widefix.jpg' %}"
+                style="
+                    width: 120;
+                    margin-top: 5%;
+                    height: 100px;
+                    border-radius: 50%;
+                "
+            />
+        </div>
+    </div>
+</div>
+{% include "footer.html"%} {% endblock %}
